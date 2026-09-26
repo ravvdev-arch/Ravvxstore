@@ -1,0 +1,14 @@
+# Cloudflare Worker configuration for RAVX STORE.
+# This file intentionally contains no secret values.
+name = "ravvxstore-api"
+main = "cloudflare-worker.ts"
+compatibility_date = "2026-09-22"
+workers_dev = true
+
+[vars]
+STORE_NAME = "RAVX STORE"
+ALLOWED_ORIGIN = "https://ravvdev-arch.github.io"
+
+# Add the D1 binding named DB in Cloudflare Dashboard after deployment:
+# Worker → Settings → Bindings → Add → D1 database
+# Never put KlikQRIS API keys in this file.

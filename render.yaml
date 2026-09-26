@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: ravx-store-api
+    runtime: node
+    rootDir: backend
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: STORE_NAME
+        value: RAVX STORE
+      - key: CLIENT_ORIGIN
+        sync: false
+      - key: PUBLIC_API_URL
+        sync: false
+      - key: ADMIN_WHATSAPP_NUMBER
+        sync: false
+      # Jika memakai Persistent Disk Render, set DATA_DIR ke mount path disk.
+      # Tambahkan secret KlikQRIS hanya sesudah merchant memberikan docs/API resmi.
+      - key: PAYMENT_PROVIDER
+        value: klikqris
+      - key: KLIKQRIS_API_KEY
+        sync: false
+      - key: KLIKQRIS_MERCHANT_ID
+        sync: false
+      - key: KLIKQRIS_WEBHOOK_SECRET
+        sync: false
